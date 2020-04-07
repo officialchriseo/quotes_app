@@ -37,7 +37,13 @@ class _QuotesState extends State<Quotes> {
         padding: EdgeInsets.all(10.0),
         child: Column(
           children: quotes.map((quote) {
-            return QuoteCard(quote: quote);
+            return QuoteCard(
+                quote: quote, delete: () {
+                  setState(() {
+                    quotes.remove(quote);
+                  });
+            },
+            );
           }).toList(),
           crossAxisAlignment: CrossAxisAlignment.start,
 
